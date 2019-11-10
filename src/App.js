@@ -3,6 +3,10 @@ import Barrels from "./Components/barrels/barrels";
 
 
 class App extends Component {
+    state = {
+        isClicked: false,
+        arrayValues: [],
+    };
 
   render() {
     return (
