@@ -6,10 +6,10 @@ class Barrels extends Component {
         isClicked: false,
         arrayValues: [],
     };
-    createRandomNumber(...array) {
+    createRandomNumber(array) {
         const number = Math.floor(Math.random()*(36-5)-1)+5;
 
-        return array[0] === number || array[1] === number || array[2] === number || array[3] === number || array[4] === number ? this.createRandomNumber(...array) : number;
+        return array[0] === number || array[1] === number || array[2] === number || array[3] === number || array[4] === number ? this.createRandomNumber(array) : number;
     }
 
     createBarrelValues() {
@@ -19,7 +19,7 @@ class Barrels extends Component {
         });
         let arr = [];
         for(let i = 0; i < 5; i++) {
-            arr.push(this.createRandomNumber(this.state.arrayValues));
+            arr.push(this.createRandomNumber(arr));
         }
         arr.sort((a,b)=>{
             return a - b;
@@ -29,8 +29,8 @@ class Barrels extends Component {
     }
     render() {
         return (
-            <div>
-                <button onClick={this.createBarrelValues.bind(this)}>123</button>
+            <div className="loto">
+                <button onClick={this.createBarrelValues.bind(this)} className="btn">New numbers</button>
                 {this.state.isClicked &&
                 <div className="barrelsBLock">
                     {this.state.arrayValues.map(key => <Barrel value={key} />)}

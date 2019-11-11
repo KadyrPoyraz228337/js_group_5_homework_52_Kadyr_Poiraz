@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 class Barrel extends Component{
     render() {
         return (
-            <span className="barrelElement">
-                {this.props.value}
-            </span>
+            <div className="barrelElement">
+                <span>
+                    {this.props.value}
+                </span>
+            </div>
         )
     }
 }
